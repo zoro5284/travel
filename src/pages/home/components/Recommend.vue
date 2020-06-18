@@ -4,7 +4,7 @@
         <ul>
             <li
                 class="item border-bottom"
-                v-for="item in recommendList"
+                v-for="item in list"
                 :key="item.id"
             >
                 <img class="item-img" :src="item.imgUrl" />
@@ -23,50 +23,12 @@
 <script>
 export default {
     name: 'HomeRecommend',
+    props: {
+        list: Array
+    },
     data () {
         return {
-            recommendList: [
-                {
-                    id: '0001',
-                    imgUrl:
-                        '//imgs.qunarzz.com/p/p29/201302/28/3d20251a1b60350a93835fbb.jpg_256x160_e8f468b0.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                },
-                {
-                    id: '0002',
-                    imgUrl:
-                        '//imgs.qunarzz.com/p/p29/201302/28/3d20251a1b60350a93835fbb.jpg_256x160_e8f468b0.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                },
-                {
-                    id: '0003',
-                    imgUrl:
-                        '//imgs.qunarzz.com/p/p29/201302/28/3d20251a1b60350a93835fbb.jpg_256x160_e8f468b0.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                },
-                {
-                    id: '0004',
-                    imgUrl:
-                        '//imgs.qunarzz.com/p/p29/201302/28/3d20251a1b60350a93835fbb.jpg_256x160_e8f468b0.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                },
-                {
-                    id: '0005',
-                    imgUrl:
-                        '//imgs.qunarzz.com/p/p29/201302/28/3d20251a1b60350a93835fbb.jpg_256x160_e8f468b0.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                }
-            ]
+
         }
     }
 }

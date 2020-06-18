@@ -4,7 +4,7 @@
         <ul>
             <li
                 class="item border-bottom"
-                v-for="item in recommendList"
+                v-for="item of list"
                 :key="item.id"
             >
                 <div class="item-img-wrapper">
@@ -24,26 +24,12 @@
 <script>
 export default {
     name: 'HomeWeekend',
+    props: {
+        list: Array
+    },
     data () {
         return {
-            recommendList: [
-                {
-                    id: '0001',
-                    imgUrl:
-                        '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/5a11974656794b4715156501be10c1b7.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                },
-                {
-                    id: '0002',
-                    imgUrl:
-                        '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/5a11974656794b4715156501be10c1b7.jpg',
-                    title: '日本樱花节',
-                    desc:
-                        '这里是日本一年一度的樱花节，有很多漂亮的小姐姐，很有意思哦'
-                }
-            ]
+
         }
     }
 }
@@ -52,7 +38,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
     .recommend-title
-        margin-top: .2rem
         line-height: .8rem
         background: #eee
         text-indent: .2rem
