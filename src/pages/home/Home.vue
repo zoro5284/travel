@@ -47,16 +47,17 @@ export default {
                 this.iconList = data.iconList
                 this.recommendList = data.recommendList
                 this.weekendList = data.weekendList
-            }
-        },
-        getCitySucc (res) {
-            res = res.data
-            if (res.ret && res.data) {
                 this.city = res.city
             }
-        },
-        getDetailSucc (res) {
         }
+        // getCitySucc (res) {
+        //     res = res.data
+        //     if (res.ret && res.data) {
+        //         this.city = res.city
+        //     }
+        // },
+        // getDetailSucc (res) {
+        // }
     },
     mounted () {
         this.getHomeInfo()
