@@ -3,54 +3,44 @@
         <div class="banner" @click="handleBannerClick">
             <img
                 class="banner-img"
-                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592909151948&di=3e52fbcb1c43042d06eb1f7430daa530&imgtype=0&src=http%3A%2F%2Ft9.baidu.com%2Fit%2Fu%3D1307125826%2C3433407105%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D5760%26h%3D3240"
+                :src="bannerImg"
             />
             <div class="banner-info">
-                <div class="banner-title">这是美女啊</div>
+                <div class="banner-title">{{this.sightName}}</div>
                 <div class="banner-number">
                     <span class="iconfont banner-icon">&#xe64a;</span>
                     39
                 </div>
             </div>
         </div>
-        <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+        <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
 import CommonGallary from 'common/gallary/Gallary'
 export default {
     name: 'DetailBanner',
     components: {
         CommonGallary
     },
+    props: {
+        sightName: String,
+        bannerImg: String,
+        gallaryImgs: Array
+    },
     data () {
         return {
-            imgs: [],
             showGallary: false
         }
     },
     methods: {
-        getDetailInfo () {
-            axios.get('/api/detail.json').then(this.getDetailSucc)
-        },
-        getDetailSucc (res) {
-            res = res.data
-            if (res.ret && res.data) {
-                const data = res.data
-                this.imgs = data.gallaryImgs
-            }
-        },
         handleBannerClick () {
             this.showGallary = true
         },
         handleGallaryClose (msg) {
             this.showGallary = false
         }
-    },
-    mounted () {
-        this.getDetailInfo()
     }
 }
 </script>
